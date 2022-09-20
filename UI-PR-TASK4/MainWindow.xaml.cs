@@ -76,7 +76,7 @@ namespace UI_PR_TASK4
                 case "LVItemLogout":
                     Application.Current.Shutdown();
                     break;
-                case "pee":
+                case "pee2":
                     break;
             }
         }

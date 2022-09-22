@@ -66,9 +66,9 @@
                                          Foreground="White">
 
                     <StackPanel Width="150">
-                        <Button x:Name="Information" Content="Информация"/>
-                        <Button x:Name="Profilee" Content="Профиль"/>
-                        <Button x:Name="Support" Content="Служба поддержки"/>
+                        <Button x:Name="Information" Click="Information_Click" Content="Информация"/>
+                        <Button x:Name="Profilee" Click="Profilee_Click" Content="Профиль"/>
+                        <Button x:Name="Support" Click="Support_Click" Content="Служба поддержки"/>
                         <Separator/>
                         <Button x:Name="Exit" Content="Выйти"/>
                     </StackPanel>

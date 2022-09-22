@@ -73,12 +73,41 @@ namespace UI_PR_TASK4
                     userControl = new NotificationsUserControl();
                     GridMain.Children.Add(userControl);
                     break;
+                case "Information":
+                    userControl = new InformationsUserControl();
+                    GridMain.Children.Add(userControl);
+                    break;
                 case "LVItemLogout":
                     Application.Current.Shutdown();
                     break;
-                case "pee2":
-                    break;
             }
+        }
+
+        private void Information_Click(object sender, RoutedEventArgs e)
+        {
+            UserControl userControl = null;
+            GridMain.Children.Clear();
+
+            userControl = new InformationsUserControl();
+            GridMain.Children.Add(userControl);
+        }
+
+        private void Profilee_Click(object sender, RoutedEventArgs e)
+        {
+            UserControl userControl = null;
+            GridMain.Children.Clear();
+
+            userControl = new ProfileeUserControl();
+            GridMain.Children.Add(userControl);
+        }
+
+        private void Support_Click(object sender, RoutedEventArgs e)
+        {
+            UserControl userControl = null;
+            GridMain.Children.Clear();
+
+            userControl = new SupportUserControl();
+            GridMain.Children.Add(userControl);
         }
     }
 }

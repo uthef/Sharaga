@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Images\bg-nt.jpg" />
     <None Remove="Images\bg_chat.jpg" />
+    <None Remove="Images\bg_info.jpg" />
     <None Remove="Images\bg_notes.jpg" />
     <None Remove="Images\bg_pr.jpg" />
     <None Remove="Images\bg_st.jpg" />
@@ -28,6 +29,9 @@
     <Resource Include="Images\bg_chat.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\bg_info.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\bg_notes.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -37,6 +41,26 @@
     <Resource Include="Images\bg_st.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="View\UserControls\SupportUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserControls\ProfileeUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="View\UserControls\SupportUserControl.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserControls\ProfileeUserControl.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

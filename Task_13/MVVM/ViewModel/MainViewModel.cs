@@ -231,12 +231,89 @@ namespace Task_13.MVVM.ViewModel
                 return _createNewEmployee ?? new RelayCommand(e =>
                 {
                     Window? window = e as Window;
+                    string resultStr = "";
+                    if (EmployeeName == null || EmployeeName.Replace(" ", "").Length == 0)
+                    {
+                        SetRedBlockControl(window, "TxbName");
+                    }
+                    if (EmployeeSurname == null || EmployeeSurname.Replace(" ", "").Length == 0)
+                    {
+                        SetRedBlockControl(window, "TxbSurname");
+                    }
+                    if (EmployeePhone == null || EmployeePhone.Replace(" ", "").Length == 0)
+                    {
+                        SetRedBlockControl(window, "TxbPhone");
+                    }
+                    if (EmployeePosition == null)
+                    {
+                        MessageBox.Show("Должность не выбрана", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        resultStr = DataWorker.CreateEmployee(EmployeeName, EmployeeSurname, EmployeePhone, EmployeePosition);
+                        UpdateEmployeeView();
+                        ShowMessageToUser(resultStr);
+                        SetNull();
+                        window.Close();
+                    }
+                });
+            }
+        }
 
+        private readonly RelayCommand _deleteItem;
+        public RelayCommand DeleteItem
+        {
+            get
+            {
+                return _deleteItem ?? new RelayCommand(d =>
+                {
+                    string resultString = "Данных для удаления нет!";
 
+                    #region Работник
+                    if (SelectedTabItem.Name == "EmployeeTab" && SelectedEmployee != null)
+                    {
+                        resultString = DataWorker.DeleteEmployee(SelectedEmployee);
+                        UpdateAllDataView();
+                    }
+                    #region
 
+                    #region Должность
+                    if (SelectedTabItem.Name == "PositionsTab" && SelectedPosition != null)
+                    {
+                        resultString = DataWorker.DeletePosition(SelectedPosition);
+                        UpdateAllDataView();
+                    }
+                    #endregion
 
+                    #region Департамент
+                    if(SelectedTabItem.Name == "DepartmentsTab" && SelectedDepartment !=null)
+                    {
+                        resultString = DataWorker.DeleteDepartment(SelectedDepartment);
+                        UpdateAllDataView();
+                    }
+                    #endregion
+
+                    #region Обновление
+                    SetNull();
+                    ShowMessageToUser(resultString);
+                    #endregion
+                });
+            }
+        }
+
+        private readonly RelayCommand? _editEmployee;
+        public RelayCommand EditEmployee
+        {
+            get
+            {
+                return _editEmployee ?? new RelayCommand(e =>
+                {
+                    Window? window = e as Window;
+                    string resultString = "Работник не выбран!";
+                    string noPositionStr = "Должность не выбрана";
                 })
             }
         }
+
     }
 }

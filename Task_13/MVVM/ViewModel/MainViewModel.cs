@@ -204,6 +204,9 @@ namespace Task_13.MVVM.ViewModel
                     Window? window = p as Window;
                     string resultStr = "";
                     if(PositionName == null || PositionName.Replace(" ", "").Length == 0)
+                    {
+
+                    }
                 })
             }
         }

@@ -205,9 +205,33 @@ namespace Task_13.MVVM.ViewModel
                     string resultStr = "";
                     if (PositionName == null || PositionName.Replace(" ", "").Length == 0)
                     {
-12
+                        SetRedBlockControl(window, "TxbPositionName");
+                    }
+                    if(PositionDepartment == null)
+                    {
+                        MessageBox.Show("Отдел не выбран", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        resultStr = DataWorker.CreatePosition(PositionName, PositionSalary, PositionMaxCountOfEmp, PositionDepartment);
+                        UpdatePositionView();
+                        ShowMessageToUser(resultStr);
+                        SetNull();
+                        window.Close();
                     }
                 });
+            }
+        }
+
+        private readonly RelayCommand _createNewEmployee;
+        public RelayCommand CreateNewEmployee
+        {
+            get
+            {
+                return _createNewEmployee ?? new RelayCommand(e =>
+                {
+                    Window? window = e as Window;
+                })
             }
         }
     }

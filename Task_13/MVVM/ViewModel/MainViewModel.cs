@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Task_13.MVVM.Core;
 using Task_13.MVVM.Model;
 
@@ -145,6 +148,8 @@ namespace Task_13.MVVM.ViewModel
         }
         #endregion
 
+        #endregion
+
         private readonly RelayCommand? _openEditItem;
         public RelayCommand OpenEditItem
         {
@@ -275,7 +280,7 @@ namespace Task_13.MVVM.ViewModel
                         resultString = DataWorker.DeleteEmployee(SelectedEmployee);
                         UpdateAllDataView();
                     }
-                    #region
+                    #endregion
 
                     #region Должность
                     if (SelectedTabItem.Name == "PositionsTab" && SelectedPosition != null)
@@ -311,9 +316,161 @@ namespace Task_13.MVVM.ViewModel
                     Window? window = e as Window;
                     string resultString = "Работник не выбран!";
                     string noPositionStr = "Должность не выбрана";
-                })
+                    if (SelectedEmployee != null)
+                    {
+                        if (EmployeePosition != null)
+                        {
+                            resultString = DataWorker.EditEmployee(SelectedEmployee,
+                                EmployeeName, EmployeeSurname, EmployeePhone, EmployeePosition);
+                            UpdateAllDataView();
+                            SetNull();
+                            ShowMessageToUser(resultString);
+                            window.Close()
+                        }
+                        else
+                        {
+                            ShowMessageToUser(noPositionStr);
+                        }
+                    }
+                    else
+                    {
+                        ShowMessageToUser(resultString);
+                    }
+                });
             }
         }
 
+        private readonly RelayCommand? _editPosition;
+        public RelayCommand EditPosition {
+            get
+            {
+                return _editPosition ?? new RelayCommand(p =>
+                {
+                    Window? window = p as Window;
+                    string resultString = "Должность не выбрана!";
+                    string noDepartmentStr = "Отдел не выбран";
+                    if (SelectedPosition != null)
+                    {
+                        if (PositionDepartment != null)
+                        {
+                            resultString = DataWorker.EditPosition(SelectedPosition,
+                                PositionName, PositionSalary, PositionMaxCountOfEmp, PositionDepartment);
+                            UpdateAllDataView();
+                            SetNull();
+                            ShowMessageToUser(resultString);
+                            window.Close();
+                        }
+                        else
+                        {
+                            ShowMessageToUser(noDepartmentStr);
+                        }
+                    }
+                    else
+                    {
+                        ShowMessageToUser(resultString);
+                    }
+                });
+            }
+        }
+
+        private readonly RelayCommand? _editDepartment;
+        public RelayCommand EditDepartment
+        {
+            get
+            {
+                return _editDepartment ?? new RelayCommand(d =>
+                {
+                    Window? window = d as Window;
+                    string resultString = "Отдел не выбран";
+                    if(SelectedDepartment != null)
+                    {
+                        resultString = DataWorker.EditDepartment(SelectedDepartment, DepartmentName);
+                        UpdateAllDataView();
+                        SetNull();
+                        ShowMessageToUser(resultString);
+                        window.Close();
+                    }
+                    else
+                    {
+                        ShowMessageToUser(resultString);
+                    }
+                });
+            }
+        }
+
+        #region Обновление ListView в MainWindow
+        private void UpdateDepartmentView()
+        {
+            AllDepartments = DataWorker.GetAllDepartments();
+            MainWindow.UpdateDepartmentView.ItemsSource = null;
+            MainWindow.UpdateDepartmentView.Items.Clear();
+            MainWindow.UpdateDepartmentView.ItemsSource = AllDepartments;
+            MainWindow.UpdateDepartmentView.Items.Refresh();
+        }
+
+        private void UpdatePositionView()
+        {
+            AllPositions = DataWorker.GetAllPositions();
+            MainWindow.UpdatePositionView.ItemsSource = null;
+            MainWindow.UpdatePositionView.Items.Clear();
+            MainWindow.UpdatePositionView.ItemsSource = AllPositions;
+            MainWindow.UpdatePositionView.Items.Refresh();
+        }
+
+        private void UpdateEmployeeView()
+        {
+            AllEmployees = DataWorker.GetAllEmployees();
+            MainWindow.UpdateEmployeeView.ItemsSource = null;
+            MainWindow.UpdateEmployeeView.Items.Clear();
+            MainWindow.UpdateEmployeeView.ItemsSource = AllPositions;
+            MainWindow.UpdateEmployeeView.Items.Refresh();
+        }
+        
+        private void UpdateAllDataView()
+        {
+            UpdateDepartmentView();
+            UpdatePositionView();
+            UpdateEmployeeView();
+        }
+        #endregion
+
+        #region Дополнительные методы
+        private void SetRedBlockControl(Window window, string blockName)
+        {
+            Control? control = window.FindName(blockName) as Control;
+            control.BorderBrush = Brushes.DarkRed;
+        }
+
+        private void ShowMessageToUser(string message)
+        {
+            MessageWindow window = new MessageWindow(message);
+            SetCenterPositionAndOpenWindow(window);
+        }
+
+        private void SetNull()
+        {
+            DepartmentName = null;
+
+            PositionName = null;
+            PositionSalary = 0;
+            PositionMaxCountOfEmp = 0;
+            PositionDepartment = null;
+
+            EmployeeName = null;
+            EmployeeSurname = null;
+            EmployeePhone = null;
+            EmployeePosition = null;
+        }
+        #endregion
+
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+        #endregion
     }
 }

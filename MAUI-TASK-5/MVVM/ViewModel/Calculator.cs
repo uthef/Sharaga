@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MAUI_TASK_5
+namespace MAUI_TASK_5.MVVM.ViewModel
 {
     public static class Calculator
     {

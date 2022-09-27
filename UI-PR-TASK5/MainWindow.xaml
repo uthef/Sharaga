@@ -1,0 +1,51 @@
+﻿<Window x:Class="UI_PR_TASK5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDeisgn="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:UI_PR_TASK5" xmlns:UserControls="clr-namespace:UI_PR_TASK5.View.UserControls"
+        mc:Ignorable="d"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Height="600"
+        Width="1080"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel 
+            Grid.Row="0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Margin="6"
+            Orientation="Horizontal"
+            FlowDirection="RightToLeft">
+
+            <Button x:Name="BtnClose"
+                    Click="BtnClose_Click"
+                    Style="{StaticResource MaterialDesignIconButton}" Cursor="Hand">
+                <materialDeisgn:PackIcon Kind="Close"/>
+            </Button>
+        </StackPanel>
+        <materialDeisgn:Transitioner SelectedIndex="0"
+                                     AutoApplyTransitionOrigins="True"
+                                     Grid.Row="1">
+            <Grid>
+                <UserControls:TimerControl/>
+            </Grid>
+            <materialDeisgn:TransitionerSlide>
+                <materialDeisgn:TransitionerSlide.BackwardWipe>
+                    <materialDeisgn:CircleWipe/>
+                </materialDeisgn:TransitionerSlide.BackwardWipe>
+                <materialDeisgn:TransitionerSlide.ForwardWipe>
+                    <materialDeisgn:SlideWipe Direction="Up"/>
+                </materialDeisgn:TransitionerSlide.ForwardWipe>
+            </materialDeisgn:TransitionerSlide>
+        </materialDeisgn:Transitioner>
+    </Grid>
+</Window>

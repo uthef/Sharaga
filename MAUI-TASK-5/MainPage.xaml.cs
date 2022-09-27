@@ -1,4 +1,6 @@
-﻿namespace MAUI_TASK_5
+﻿using MAUI_TASK_5.MVVM.ViewModel;
+
+namespace MAUI_TASK_5
 {
     public partial class MainPage : ContentPage
     {

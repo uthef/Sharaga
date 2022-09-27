@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI-PR-TASK4", "UI-PR-TASK4\UI-PR-TASK4.csproj", "{4CDFBD2B-533E-4A02-9C08-C1752D7A2612}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_13", "Task_13\Task_13.csproj", "{43E99733-D9BB-4AC0-8E07-53188E8507C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_13", "Task_13\Task_13.csproj", "{43E99733-D9BB-4AC0-8E07-53188E8507C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAUI-TASK-5", "MAUI-TASK-5\MAUI-TASK-5.csproj", "{DD3680E4-DB13-40A5-B660-847FBD8F7FF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{43E99733-D9BB-4AC0-8E07-53188E8507C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43E99733-D9BB-4AC0-8E07-53188E8507C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43E99733-D9BB-4AC0-8E07-53188E8507C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD3680E4-DB13-40A5-B660-847FBD8F7FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD3680E4-DB13-40A5-B660-847FBD8F7FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD3680E4-DB13-40A5-B660-847FBD8F7FF5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DD3680E4-DB13-40A5-B660-847FBD8F7FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD3680E4-DB13-40A5-B660-847FBD8F7FF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD3680E4-DB13-40A5-B660-847FBD8F7FF5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

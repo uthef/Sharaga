@@ -20,6 +20,7 @@ namespace UI_PR_TASK5.View.UserControls
     /// </summary>
     public partial class TimerControl : UserControl
     {
+
         public TimerControl()
         {
             InitializeComponent();

@@ -36,7 +36,7 @@
                                      AutoApplyTransitionOrigins="True"
                                      Grid.Row="1">
             <Grid>
-                <UserControls:TimerControl/>
+                <UserControls:TimerControl x:Name="TimerControl"/>
             </Grid>
             <materialDeisgn:TransitionerSlide>
                 <materialDeisgn:TransitionerSlide.BackwardWipe>

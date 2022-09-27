@@ -22,7 +22,7 @@
                VerticalTextAlignment="End"
                LineBreakMode="NoWrap" Grid.ColumnSpan="4"/>
 
-        <BoxView BackgroundColor="{StaticResource LightGray}" HeightRequest="1"
+        <BoxView BackgroundColor="{StaticResource Gray100}" HeightRequest="1"
                  Grid.Row="0" VerticalOptions="End"
                  Grid.ColumnSpan="4"/>
 

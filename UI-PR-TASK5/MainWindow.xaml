@@ -11,8 +11,7 @@
         Width="1080"
         WindowStyle="None"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
-        MouseDown="Window_MouseDown">
+        WindowStartupLocation="CenterScreen">
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -27,7 +26,7 @@
             FlowDirection="RightToLeft">
 
             <Button x:Name="BtnClose"
-                    Click="BtnClose_Click"
+                    Click="CloseButtonClick"
                     Style="{StaticResource MaterialDesignIconButton}" Cursor="Hand">
                 <materialDeisgn:PackIcon Kind="Close"/>
             </Button>
@@ -36,7 +35,8 @@
                                      AutoApplyTransitionOrigins="True"
                                      Grid.Row="1">
             <Grid>
-                <UserControls:TimerControl x:Name="TimerControl"/>
+                <UserControls:TimerControl x:Name="TimerControl">
+                </UserControls:TimerControl>
             </Grid>
             <materialDeisgn:TransitionerSlide>
                 <materialDeisgn:TransitionerSlide.BackwardWipe>

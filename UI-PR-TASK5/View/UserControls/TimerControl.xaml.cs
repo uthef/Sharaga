@@ -20,10 +20,22 @@ namespace UI_PR_TASK5.View.UserControls
     /// </summary>
     public partial class TimerControl : UserControl
     {
-
         public TimerControl()
         {
             InitializeComponent();
+        }
+
+        public void AddTimer(TimerListItem item)
+        {
+            TimerList.Items.Add(item);
+        }
+
+        public void DisposeAllTimers()
+        {
+            foreach (TimerListItem item in TimerList.Items)
+            {
+                item.DisposeTimer();
+            }
         }
     }
 }

@@ -69,6 +69,9 @@
     <Compile Include="View\UserControls\TimerControl.xaml.cs">
       <DependentUpon>TimerControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\TimerListItem.xaml.cs">
+      <DependentUpon>TimerListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\TimerSettingsControl.xaml.cs">
       <DependentUpon>TimerSettingsControl.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\UserControls\TimerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\TimerListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

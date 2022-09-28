@@ -101,7 +101,7 @@ namespace Task_13.MVVM.Core
                     {
                         Name = name,
                         Surname = surname,
-                        Phone = phone
+                        Phone = phone,
                         PositionID = position.ID
                     });
                     result = "Сотрудник успешно добавлен";

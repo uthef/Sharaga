@@ -36,46 +36,11 @@
                                      Foreground="White"/>
         </Button>
         <ListView
-                  x:Name="TimeList"
+                  x:Name="TimerList"
                   Grid.Row="2"
                   Margin="10"
                   SelectedIndex="0"
                   Foreground="Black">
-
-            <ListViewItem Opacity="0.5">
-                <Grid Width="300">
-                    <StackPanel>
-                        <TextBlock x:Name="TextBlocker"
-                                   FontSize="30"
-                                   Effect="{StaticResource MaterialDesignShadowDepth1}"
-                                   Text="05:00"
-                                   Foreground="Black"/>
-                        <TextBlock Opacity="0.8"
-                                   Text="Вкл."
-                                   Foreground="Black"/>
-                    </StackPanel>
-                    <ToggleButton
-                                  HorizontalAlignment="Right"
-                                  VerticalAlignment="Top"
-                                  Margin="10"
-                                  IsChecked="True"
-                                  Cursor="Hand"/>
-                </Grid> 
-            </ListViewItem>
-            <ListViewItem>
-                <Grid Width="300">
-                    <StackPanel>
-                        <TextBlock FontSize="30"
-                                   Text="10:00"/>
-                        <TextBlock Opacity="0.8"
-                                   Text="Выкл."/>
-                    </StackPanel>
-                    <ToggleButton HorizontalAlignment="Right"
-                                  VerticalAlignment="Top"
-                                  Margin="10"
-                                  Cursor="Hand"/>
-                </Grid>
-            </ListViewItem>
         </ListView>
     </Grid>
 </UserControl>

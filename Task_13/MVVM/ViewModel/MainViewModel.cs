@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Task_13.MVVM.Core;
 using Task_13.MVVM.Model;
+using Task_13.MVVM.View.AddWindow;
 
 namespace Task_13.MVVM.ViewModel
 {
@@ -102,7 +103,7 @@ namespace Task_13.MVVM.ViewModel
 
         public void OpenAddEmployeeWindow()
         {
-            AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow();
+            AddEmployeeWIndow addEmployeeWindow = new AddEmployeeWIndow();
             SetCenterPositionAndOpenWindow(addEmployeeWindow);
         }
         #endregion
@@ -228,7 +229,7 @@ namespace Task_13.MVVM.ViewModel
             }
         }
 
-        private readonly RelayCommand _createNewEmployee;
+        private readonly RelayCommand? _createNewEmployee;
         public RelayCommand CreateNewEmployee
         {
             get
@@ -265,7 +266,7 @@ namespace Task_13.MVVM.ViewModel
             }
         }
 
-        private readonly RelayCommand _deleteItem;
+        private readonly RelayCommand? _deleteItem;
         public RelayCommand DeleteItem
         {
             get

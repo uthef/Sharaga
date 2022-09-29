@@ -68,7 +68,7 @@
                 x:Name="TxbNewSurname"
                 MaxLength="25"
                 FontSize="18"
-                Text="{Binding Surname}"
+                Text="{Binding EmployeeSurname}"
                 materialDesign:TransitionAssist.DisableTransitions="True"/>
             
             <TextBlock Text="Имя"
@@ -78,7 +78,7 @@
                 x:Name="TxbNewName"
                 MaxLength="25"
                 FontSize="18"
-                Text="{Binding Name}"
+                Text="{Binding EmployeeName}"
                 materialDesign:TransitionAssist.DisableTransitions="True"/>
             
             <TextBlock Text="Телефон"
@@ -88,7 +88,7 @@
                 x:Name="TxbNewPhone"
                 MaxLength="25"
                 FontSize="18"
-                Text="{Binding Phone}"
+                Text="{Binding EmployeePhone}"
                 materialDesign:TransitionAssist.DisableTransitions="True"/>
 
             <ComboBox x:Name="CmbNewPosition"

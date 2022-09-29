@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Task_13.MVVM.Core;
 using Task_13.MVVM.Model;
+using Task_13.MVVM.View;
 using Task_13.MVVM.View.AddWindow;
 
 namespace Task_13.MVVM.ViewModel
@@ -126,7 +127,7 @@ namespace Task_13.MVVM.ViewModel
         {
             get
             {
-                return _openAddDepartmentWindow ?? new RelayCommand(e => { OpenAddDepartmentWindow(); });
+                return _openAddDepartmentWindow ?? new RelayCommand(e => { OpenAddNewDepartmentWindow(); });
             }
         }
 
@@ -173,6 +174,16 @@ namespace Task_13.MVVM.ViewModel
                     #endregion
                 });
             }
+        }
+
+        private void OpenEditEmployeeWindow(Employee selectedEmployee)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OpenEditPositionWindow(Position selectedPosition)
+        {
+            throw new NotImplementedException();
         }
 
         private RelayCommand? _createNewDepartment;

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Task_13.MVVM.Core;
+using Task_13.MVVM.ViewModel;
+using Task_13.MVVM.Model.Data;
 
 namespace Task_13.MVVM.Model
 {
@@ -36,6 +38,6 @@ namespace Task_13.MVVM.Model
             }
         }
 
-        public object DataWorker { get; private set; }
+       /* public object DataWorker { get; set; }*/
     }
 }

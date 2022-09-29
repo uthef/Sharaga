@@ -172,13 +172,13 @@ namespace Task_13.MVVM.Core
         #endregion
 
         #region Редактировать должность
-        public static string EditPosition(Position poisitonName, string newPositionName, decimal newSalary,
+        public static string EditPosition(Position positionName, string newPositionName, decimal newSalary,
             int newMaxCountOfEmployees, Department newDepartment)
         {
             string result = "Такой должности нет";
             using (ApplicationContext db = new ApplicationContext())
             {
-                Position position = db.Positions.FirstOrDefault(f => f.ID == newPositionName.ID);
+                Position position = db.Positions.FirstOrDefault(f => f.ID == positionName.ID);
                 if(position != null)
                 {
                     position.PositionName = newPositionName;

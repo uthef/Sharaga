@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Task_13.MVVM.View.AddWindow
 {
     /// <summary>
-    /// Логика взаимодействия для AddEmployeeWIndow.xaml
+    /// Логика взаимодействия для AddNewDepartmentWindow.xaml
     /// </summary>
-    public partial class AddEmployeeWIndow : Window
+    public partial class AddNewDepartmentWindow : Window
     {
-        public AddEmployeeWIndow()
+        public AddNewDepartmentWindow()
         {
             InitializeComponent();
         }

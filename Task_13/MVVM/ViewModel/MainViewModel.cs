@@ -13,7 +13,7 @@ using System.Windows.Media;
 using Task_13.MVVM.Core;
 using Task_13.MVVM.Model;
 
-namespace Task_13.MVVM.MainViewModel
+namespace Task_13.MVVM.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {

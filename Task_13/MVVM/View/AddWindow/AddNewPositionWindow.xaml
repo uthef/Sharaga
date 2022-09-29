@@ -1,10 +1,10 @@
-﻿<Window x:Class="Task_13.MVVM.View.AddWindow.AddEmployeeWIndow"
+﻿<Window x:Class="Task_13.MVVM.View.AddWindow.AddNewPositionWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:Task_13.MVVM.View.AddWindow" xmlns:viewmodel="clr-namespace:Task_13.MVVM.MainViewModel"
+        xmlns:local="clr-namespace:Task_13.MVVM.View.AddWindow" xmlns:viewmodel="clr-namespace:Task_13.MVVM.ViewModel"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -13,13 +13,13 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Height="350"
+        Height="370"
         Width="500"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize"
         AllowsTransparency="True"
-        x:Name="AddEmployeeWin">
+        x:Name="AddNewPositionWin">
     <Window.DataContext>
         <viewmodel:MainViewModel/>
     </Window.DataContext>
@@ -29,13 +29,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+
         <Border Grid.Row="0"
                 Background="Gray">
             <Grid HorizontalAlignment="Stretch">
                 <StackPanel HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Margin="5 0 0 0">
-                    <TextBlock Text="Добавление сотрудника"
+                    <TextBlock Text="Добавление должности"
                                Foreground="White"
                                FontWeight="SemiBold"/>
                 </StackPanel>
@@ -56,52 +57,53 @@
                 </StackPanel>
             </Grid>
         </Border>
-        
+
         <StackPanel Grid.Row="1"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Width="250">
-            <TextBlock Text="Фамилия"
-                       Style="{StaticResource MaterialDesignHeadline5TextBlock}"/>
-            <TextBox
-                x:Name="TxbSurname"
-                Text="{Binding Surname}"
-                MaxLength="25"
-                FontSize="18"
-                materialDesign:TransitionAssist.DisableTransitions="True"/>
-
-            <TextBlock Text="Имя"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Должность"
                        Style="{StaticResource MaterialDesignHeadline5TextBlock}"/>
 
             <TextBox
-                x:Name="TxbName"
-                Text="{Binding Name}"
+                x:Name="TxbPositionName"
                 MaxLength="25"
                 FontSize="18"
+                Text="{Binding PositionName}"
                 materialDesign:TransitionAssist.DisableTransitions="True"/>
 
-            <TextBlock Text="Телефон"
+            <TextBlock Text="Зарплата"
                        Style="{StaticResource MaterialDesignHeadline5TextBlock}"/>
-            
+            <TextBox
+                x:Name="TxbSalary"
+                MaxLength="25"
+                FontSize="18"
+                Text="{Binding Salary}"
+                materialDesign:TransitionAssist.DisableTransitions="True"/>
+
+            <TextBlock Text="Макс. кол-во сотрудников"
+                       Margin="0 8 0 0"
+                       Style="{StaticResource MaterialDesignHeadline5TextBlock}"/>
+
             <TextBox 
-                x:Name="TxbPhone"
-                Text="{Binding Phone}"
-                MaxLength="25"
+                x:Name="TxbMaxCountOfEmployees"
+                MaxLength="10"
                 FontSize="18"
+                Text="{Binding PositionMaxCountOfEmp}"
                 materialDesign:TransitionAssist.DisableTransitions="True"/>
-            <ComboBox x:Name="CmbPosition"
-                      ItemsSource="{Binding AllPositions}"
-                      SelectedItem="{Binding EmployeePosition}"
-                      DisplayMemberPath="PositionName"
-                      Margin="0 8 0 0"
-                      materialDesign:HintAssist.Hint="Должность"
+            <ComboBox x:Name="CmbDepartment"
+                      Margin="0 5 0 0"
+                      ItemsSource="{Binding AllDepartments}"
+                      SelectedItem="{Binding PositionDepartment}"
+                      DisplayMemberPath="DepartmentName"
+                      materialDesign:HintAssist.Hint="Отдел"
                       FontSize="23"/>
         </StackPanel>
+
         <Button Grid.Row="2"
-                Content="Добавить сотрудника"
+                Content="Добавить должность"
                 Cursor="Hand"
                 Foreground="White"
-                Command="{Binding CreateNewEmployee}"
-                CommandParameter="{Binding ElementName=AddEmployeeWin}"/>
+                Command="{Binding CreateNewPosition}"
+                CommandParameter="{Binding ElementName=AddNewPositionWin}"/>
     </Grid>
 </Window>

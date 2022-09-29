@@ -13,7 +13,7 @@ using System.Windows.Media;
 using Task_13.MVVM.Core;
 using Task_13.MVVM.Model;
 
-namespace Task_13.MVVM.ViewModel
+namespace Task_13.MVVM.MainViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
@@ -325,7 +325,7 @@ namespace Task_13.MVVM.ViewModel
                             UpdateAllDataView();
                             SetNull();
                             ShowMessageToUser(resultString);
-                            window.Close()
+                            window.Close();
                         }
                         else
                         {

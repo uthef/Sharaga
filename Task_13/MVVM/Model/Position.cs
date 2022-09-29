@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task_13.MVVM.Core;
 
 namespace Task_13.MVVM.Model
 {
@@ -31,8 +32,10 @@ namespace Task_13.MVVM.Model
         {
             get
             {
-                return Dataworker.GetAllEmployeesByPositionID(ID);
+                return DataWorker.GetAllEmployeesByPositionID(ID);
             }
         }
+
+        public object DataWorker { get; private set; }
     }
 }

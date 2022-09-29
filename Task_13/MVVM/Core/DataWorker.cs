@@ -77,7 +77,7 @@ namespace Task_13.MVVM.Core
                     {
                         PositionName = positionName,
                         Salary = salary,
-                        MaxCountOfEmployees = maxCountOfEmployees
+                        MaxCountOfEmployees = maxCountOfEmployees,
                         DepartmentID = department.ID
                     });
                     db.SaveChanges();

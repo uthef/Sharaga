@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,15 @@ namespace UI_PR_TASK5.View.UserControls
     /// </summary>
     public partial class TimerSettingsControl : UserControl
     {
-        public TimerSettingsControl()
+        public DialogHost DialogHost;
+        public TimerSettingsControl(DialogHost dialogHost)
         {
             InitializeComponent();
+        }
+
+        private void CancelButtonClick(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UI_PR_TASK5.View.UserControls;
+using MaterialDesignThemes.Wpf;
 
 namespace UI_PR_TASK5
 {
@@ -27,9 +28,7 @@ namespace UI_PR_TASK5
         public MainWindow()
         {
             InitializeComponent();
-
-            TimerControl.AddTimer(new TimerListItem(TimeSpan.FromMinutes(5)));
-            TimerControl.AddTimer(new TimerListItem(TimeSpan.FromMinutes(10)));
+            TimerControl.AddTimers(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(10));
         }
 
         private void CloseButtonClick(object sender, RoutedEventArgs e)

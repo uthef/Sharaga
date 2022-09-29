@@ -30,21 +30,23 @@
         </materialDesign:ColorZone>
         <StackPanel Orientation="Horizontal"
                     Grid.Row="1"
-                    HorizontalAlignment="Right"
                     Margin="20">
-
-            <Button Style="{DynamicResource MaterialDesignFlatButton}"
+            <materialDesign:TimePicker MinWidth="100" />
+            <StackPanel Orientation="Horizontal">
+                <Button Style="{DynamicResource MaterialDesignFlatButton}"
                     Margin="5"
                     Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
-                    Content="Отмена"/>
+                    Content="Отмена"
+                    Click="CancelButtonClick"/>
             <Button Margin="5"
                     Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Content="Сохранить"
                     Foreground="White"/>
+        </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>

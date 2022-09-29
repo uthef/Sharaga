@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,10 @@ namespace UI_PR_TASK5.View.UserControls
             InitializeComponent();
         }
 
-        public void AddTimer(TimerListItem item)
+        public void AddTimers(params TimeSpan[] items)
         {
-            TimerList.Items.Add(item);
+            foreach (var item in items)
+                TimerList.Items.Add(new TimerListItem(item));
         }
 
         public void DisposeAllTimers()
@@ -36,6 +38,10 @@ namespace UI_PR_TASK5.View.UserControls
             {
                 item.DisposeTimer();
             }
+        }
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

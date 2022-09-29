@@ -24,7 +24,6 @@
             Margin="6"
             Orientation="Horizontal"
             FlowDirection="RightToLeft">
-
             <Button x:Name="BtnClose"
                     Click="CloseButtonClick"
                     Style="{StaticResource MaterialDesignIconButton}" Cursor="Hand">
@@ -35,8 +34,7 @@
                                      AutoApplyTransitionOrigins="True"
                                      Grid.Row="1">
             <Grid>
-                <UserControls:TimerControl x:Name="TimerControl">
-                </UserControls:TimerControl>
+                <UserControls:TimerControl x:Name="TimerControl" />
             </Grid>
             <materialDeisgn:TransitionerSlide>
                 <materialDeisgn:TransitionerSlide.BackwardWipe>

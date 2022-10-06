@@ -30,7 +30,7 @@ namespace Task_13.MVVM.Core
 
         public void Execute(object parameter)
         {
-            this.execute(parameter);
+            this.execute(parameter); 
         }
     }
 }

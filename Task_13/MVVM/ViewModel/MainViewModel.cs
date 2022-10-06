@@ -14,6 +14,7 @@ using Task_13.MVVM.Core;
 using Task_13.MVVM.Model;
 using Task_13.MVVM.View;
 using Task_13.MVVM.View.AddWindow;
+using Task_13.MVVM.View.EditWindow;
 
 namespace Task_13.MVVM.ViewModel
 {
@@ -104,7 +105,7 @@ namespace Task_13.MVVM.ViewModel
 
         public void OpenAddEmployeeWindow()
         {
-            AddEmployeeWIndow addEmployeeWindow = new AddEmployeeWIndow();
+            AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow();
             SetCenterPositionAndOpenWindow(addEmployeeWindow);
         }
         #endregion
@@ -178,12 +179,14 @@ namespace Task_13.MVVM.ViewModel
 
         private void OpenEditEmployeeWindow(Employee selectedEmployee)
         {
-            throw new NotImplementedException();
+            Window editEmployee = new EditEmployeeWindow(selectedEmployee);
+            editEmployee.Show();
         }
 
         private void OpenEditPositionWindow(Position selectedPosition)
         {
-            throw new NotImplementedException();
+            Window Edit = new EditPositionWindow(selectedPosition);
+            Edit.Show();
         }
 
         private RelayCommand? _createNewDepartment;
@@ -204,7 +207,7 @@ namespace Task_13.MVVM.ViewModel
                         resultStr = DataWorker.CreateDepartment(DepartmentName);
                         UpdateDepartmentView();
                         ShowMessageToUser(resultStr);
-                        SetNull();
+                        /*SetNull();*/
                         window.Close();
                     }
                 });
@@ -233,7 +236,7 @@ namespace Task_13.MVVM.ViewModel
                         resultStr = DataWorker.CreatePosition(PositionName, PositionSalary, PositionMaxCountOfEmp, PositionDepartment);
                         UpdatePositionView();
                         ShowMessageToUser(resultStr);
-                        SetNull();
+                        /*SetNull();*/
                         window.Close();
                     }
                 });
@@ -270,7 +273,7 @@ namespace Task_13.MVVM.ViewModel
                         resultStr = DataWorker.CreateEmployee(EmployeeName, EmployeeSurname, EmployeePhone, EmployeePosition);
                         UpdateEmployeeView();
                         ShowMessageToUser(resultStr);
-                        SetNull();
+                        /*SetNull();*/
                         window.Close();
                     }
                 });
@@ -311,7 +314,7 @@ namespace Task_13.MVVM.ViewModel
                     #endregion
 
                     #region Обновление
-                    SetNull();
+                    /*SetNull();*/
                     ShowMessageToUser(resultString);
                     #endregion
                 });
@@ -335,7 +338,7 @@ namespace Task_13.MVVM.ViewModel
                             resultString = DataWorker.EditEmployee(SelectedEmployee,
                                 EmployeeName, EmployeeSurname, EmployeePhone, EmployeePosition);
                             UpdateAllDataView();
-                            SetNull();
+                            /*SetNull();*/
                             ShowMessageToUser(resultString);
                             window.Close();
                         }
@@ -368,7 +371,7 @@ namespace Task_13.MVVM.ViewModel
                             resultString = DataWorker.EditPosition(SelectedPosition,
                                 PositionName, PositionSalary, PositionMaxCountOfEmp, PositionDepartment);
                             UpdateAllDataView();
-                            SetNull();
+                            /*SetNull();*/
                             ShowMessageToUser(resultString);
                             window.Close();
                         }
@@ -398,7 +401,7 @@ namespace Task_13.MVVM.ViewModel
                     {
                         resultString = DataWorker.EditDepartment(SelectedDepartment, DepartmentName);
                         UpdateAllDataView();
-                        SetNull();
+                        /*SetNull();*/
                         ShowMessageToUser(resultString);
                         window.Close();
                     }
@@ -434,7 +437,7 @@ namespace Task_13.MVVM.ViewModel
             AllEmployees = DataWorker.GetAllEmployees();
             MainWindow.UpdateEmployeeView.ItemsSource = null;
             MainWindow.UpdateEmployeeView.Items.Clear();
-            MainWindow.UpdateEmployeeView.ItemsSource = AllPositions;
+            MainWindow.UpdateEmployeeView.ItemsSource = AllEmployees;
             MainWindow.UpdateEmployeeView.Items.Refresh();
         }
         
@@ -459,7 +462,7 @@ namespace Task_13.MVVM.ViewModel
             SetCenterPositionAndOpenWindow(window);
         }
 
-        private void SetNull()
+/*        private void SetNull()
         {
             DepartmentName = null;
 
@@ -472,7 +475,7 @@ namespace Task_13.MVVM.ViewModel
             EmployeeSurname = null;
             EmployeePhone = null;
             EmployeePosition = null;
-        }
+        }*/
         #endregion
 
         #region INotifyPropertyChanged

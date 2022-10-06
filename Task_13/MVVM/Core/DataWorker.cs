@@ -104,6 +104,7 @@ namespace Task_13.MVVM.Core
                         Phone = phone,
                         PositionID = position.ID
                     });
+                    db.SaveChanges();
                     result = "Сотрудник успешно добавлен";
                 }
                 return result;

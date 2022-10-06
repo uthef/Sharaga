@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Task_13.MVVM.ViewModel;
 
 namespace Task_13
 {
@@ -23,6 +24,7 @@ namespace Task_13
         public static ListView? UpdateDepartmentView;
         public static ListView? UpdatePositionView;
         public static ListView? UpdateEmployeeView;
+
         public MainWindow()
         {
             InitializeComponent();

@@ -37,7 +37,5 @@ namespace Task_13.MVVM.Model
                 return DataWorker.GetAllEmployeesByPositionID(ID);
             }
         }
-
-       /* public object DataWorker { get; set; }*/
     }
 }

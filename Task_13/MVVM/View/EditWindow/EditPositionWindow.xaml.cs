@@ -28,6 +28,7 @@ namespace Task_13.MVVM.View.EditWindow
             MainViewModel.PositionName = position.PositionName;
             MainViewModel.PositionSalary = position.Salary;
             MainViewModel.PositionMaxCountOfEmp = position.MaxCountOfEmployees;
+            MainViewModel.PositionDepartment = position.Department;
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)

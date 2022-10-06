@@ -37,7 +37,7 @@
                 <StackPanel HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Margin="5 0 0 0">
-                    <TextBlock Text="TASK 13"
+                    <TextBlock Text="TASK 12"
                                Foreground="White"
                                FontWeight="SemiBold"/>
                 </StackPanel>
